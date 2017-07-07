@@ -116,9 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				05E74CAB1F06230400C14034 /* Simple_6.30 */,
+				05E74CAA1F06230400C14034 /* Products */,
 				05E74CC51F06230400C14034 /* Simple_6.30Tests */,
 				05E74CD01F06230400C14034 /* Simple_6.30UITests */,
-				05E74CAA1F06230400C14034 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,8 +140,8 @@
 				05E74CAF1F06230400C14034 /* AppDelegate.h */,
 				05E74CB01F06230400C14034 /* AppDelegate.m */,
 				05E74CB81F06230400C14034 /* Assets.xcassets */,
-				05E74CBA1F06230400C14034 /* LaunchScreen.storyboard */,
 				05E74CBD1F06230400C14034 /* Info.plist */,
+				05E74CBA1F06230400C14034 /* LaunchScreen.storyboard */,
 				05E74CAC1F06230400C14034 /* Supporting Files */,
 			);
 			path = Simple_6.30;
@@ -150,20 +150,20 @@
 		05E74CAC1F06230400C14034 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				05E74D151F0DD88700C14034 /* WechatIMG2.jpeg */,
-				05E74D131F0DCBCE00C14034 /* WechatIMG1.jpeg */,
-				05E74CAD1F06230400C14034 /* main.m */,
 				05E74CE31F06242700C14034 /* PrefixHeader.pch */,
+				05E74D131F0DCBCE00C14034 /* WechatIMG1.jpeg */,
+				05E74D151F0DD88700C14034 /* WechatIMG2.jpeg */,
+				05E74CAD1F06230400C14034 /* main.m */,
 				05E74CFB1F0638BB00C14034 /* mates.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		05E74CC51F06230400C14034 /* Simple_6.30Tests */ = {
 			isa = PBXGroup;
 			children = (
-				05E74CC61F06230400C14034 /* Simple_6_30Tests.m */,
 				05E74CC81F06230400C14034 /* Info.plist */,
+				05E74CC61F06230400C14034 /* Simple_6_30Tests.m */,
 			);
 			path = Simple_6.30Tests;
 			sourceTree = "<group>";
@@ -171,8 +171,8 @@
 		05E74CD01F06230400C14034 /* Simple_6.30UITests */ = {
 			isa = PBXGroup;
 			children = (
-				05E74CD11F06230400C14034 /* Simple_6_30UITests.m */,
 				05E74CD31F06230400C14034 /* Info.plist */,
+				05E74CD11F06230400C14034 /* Simple_6_30UITests.m */,
 			);
 			path = Simple_6.30UITests;
 			sourceTree = "<group>";
@@ -180,13 +180,13 @@
 		05E74CE41F0626AF00C14034 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				05E74D0D1F0C8ED200C14034 /* ItemViewController */,
-				05E74CFD1F0657BF00C14034 /* HistoryViewController */,
 				05E74CEA1F06273500C14034 /* AdjustViewController */,
+				05E74CFD1F0657BF00C14034 /* HistoryViewController */,
+				05E74D0D1F0C8ED200C14034 /* ItemViewController */,
 				05E74CE61F0626DF00C14034 /* MainViewController */,
 				05E74CE51F0626CD00C14034 /* TestBarViewController */,
 			);
-			name = ViewController;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		05E74CE51F0626CD00C14034 /* TestBarViewController */ = {
@@ -195,7 +195,7 @@
 				05E74CDF1F06235C00C14034 /* TestBarViewController.h */,
 				05E74CE01F06235C00C14034 /* TestBarViewController.m */,
 			);
-			name = TestBarViewController;
+			path = TestBarViewController;
 			sourceTree = "<group>";
 		};
 		05E74CE61F0626DF00C14034 /* MainViewController */ = {
@@ -205,7 +205,7 @@
 				05E74CF11F06277800C14034 /* MainViewController.m */,
 				05E74CF21F06277800C14034 /* MainViewController.xib */,
 			);
-			name = MainViewController;
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 		05E74CEA1F06273500C14034 /* AdjustViewController */ = {
@@ -215,7 +215,7 @@
 				05E74CEC1F06276500C14034 /* AdjustViewController.m */,
 				05E74CED1F06276500C14034 /* AdjustViewController.xib */,
 			);
-			name = AdjustViewController;
+			path = AdjustViewController;
 			sourceTree = "<group>";
 		};
 		05E74CF51F062DEE00C14034 /* Model */ = {
@@ -223,22 +223,22 @@
 			children = (
 				05E74CF81F062E5F00C14034 /* User.h */,
 				05E74CF91F062E5F00C14034 /* User.m */,
-				05E74D081F09E86700C14034 /* UserItem.h */,
-				05E74D091F09E86700C14034 /* UserItem.m */,
 				05E74D171F0DDEB800C14034 /* UserImage.h */,
 				05E74D181F0DDEB800C14034 /* UserImage.m */,
+				05E74D081F09E86700C14034 /* UserItem.h */,
+				05E74D091F09E86700C14034 /* UserItem.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		05E74CFD1F0657BF00C14034 /* HistoryViewController */ = {
 			isa = PBXGroup;
 			children = (
+				05E74D0B1F0A302600C14034 /* HistoryHeader.xib */,
 				05E74D031F078F2B00C14034 /* HistoryViewController.h */,
 				05E74D041F078F2B00C14034 /* HistoryViewController.m */,
-				05E74D0B1F0A302600C14034 /* HistoryHeader.xib */,
 			);
-			name = HistoryViewController;
+			path = HistoryViewController;
 			sourceTree = "<group>";
 		};
 		05E74D0D1F0C8ED200C14034 /* ItemViewController */ = {
@@ -248,7 +248,7 @@
 				05E74D0F1F0C8EFB00C14034 /* ItemViewController.m */,
 				05E74D101F0C8EFB00C14034 /* ItemViewController.xib */,
 			);
-			name = ItemViewController;
+			path = ItemViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +441,7 @@
 				05E74CBB1F06230400C14034 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -543,7 +544,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Simple_6.30/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Simple_6.30/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = Simple_6.30/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fsd.Simple-6-30";
@@ -556,7 +557,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Simple_6.30/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Simple_6.30/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = Simple_6.30/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fsd.Simple-6-30";
