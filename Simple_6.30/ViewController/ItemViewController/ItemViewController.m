@@ -15,6 +15,7 @@
 @property (nonatomic,weak) IBOutlet UITextField *adjTF;
 @property (nonatomic,weak) IBOutlet UIButton *subButton;
 @property (nonatomic,weak) IBOutlet UIImageView *imgView;
+@property(nonatomic,strong) UIImageView *imgViewCodebase;
 @end
 
 @implementation ItemViewController
@@ -34,6 +35,29 @@
                                                                                  target:self
                                                                                  action:@selector(takePicture:)];
     navItem.rightBarButtonItem = cameraBarButton;
+    
+//    //如果控件由代码创建
+    UIImageView *iv = [[UIImageView alloc] initWithImage:nil];
+    
+    //设置uiimageview的缩放模式
+    iv.contentMode = UIViewContentModeScaleAspectFit;
+    //设置自动布局系统不要将自动缩放掩码转换为约束
+    iv.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:iv];
+    self.imgViewCodebase = iv;
+    
+    NSDictionary *nameMap = @{@"imageView" : self.imgViewCodebase,
+                              @"submitButton" : self.subButton};
+    //imgViewCodebase的左右与父视图距离都为0
+    NSArray *horizonalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:nameMap
+                                     ];
+    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@""
+                                                                           options:0
+                                                                           metrics:nil
+                                                                             views:nameMap];
     
    }
 

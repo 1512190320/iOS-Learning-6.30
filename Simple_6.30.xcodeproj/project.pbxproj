@@ -28,6 +28,7 @@
 		05E74D141F0DCBCE00C14034 /* WechatIMG1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 05E74D131F0DCBCE00C14034 /* WechatIMG1.jpeg */; };
 		05E74D161F0DD88700C14034 /* WechatIMG2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 05E74D151F0DD88700C14034 /* WechatIMG2.jpeg */; };
 		05E74D191F0DDEB800C14034 /* UserImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74D181F0DDEB800C14034 /* UserImage.m */; };
+		0AD90CBEDB3C003B484C6448 /* libPods-Simple_6.30.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0B1414CDEF74A4D8F652C3 /* libPods-Simple_6.30.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,9 @@
 		05E74D151F0DD88700C14034 /* WechatIMG2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WechatIMG2.jpeg; sourceTree = "<group>"; };
 		05E74D171F0DDEB800C14034 /* UserImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserImage.h; sourceTree = "<group>"; };
 		05E74D181F0DDEB800C14034 /* UserImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserImage.m; sourceTree = "<group>"; };
+		3413F98DCB45D75D727CFDD9 /* Pods-Simple_6.30.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple_6.30.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple_6.30/Pods-Simple_6.30.debug.xcconfig"; sourceTree = "<group>"; };
+		43F756500311305805FCF18A /* Pods-Simple_6.30.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple_6.30.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple_6.30/Pods-Simple_6.30.release.xcconfig"; sourceTree = "<group>"; };
+		7E0B1414CDEF74A4D8F652C3 /* libPods-Simple_6.30.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Simple_6.30.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD90CBEDB3C003B484C6448 /* libPods-Simple_6.30.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +124,8 @@
 				05E74CAA1F06230400C14034 /* Products */,
 				05E74CC51F06230400C14034 /* Simple_6.30Tests */,
 				05E74CD01F06230400C14034 /* Simple_6.30UITests */,
+				4C87937AC830FAD857C144FE /* Pods */,
+				7689A424258A80B59A83AB13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,6 +258,23 @@
 			path = ItemViewController;
 			sourceTree = "<group>";
 		};
+		4C87937AC830FAD857C144FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3413F98DCB45D75D727CFDD9 /* Pods-Simple_6.30.debug.xcconfig */,
+				43F756500311305805FCF18A /* Pods-Simple_6.30.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7689A424258A80B59A83AB13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E0B1414CDEF74A4D8F652C3 /* libPods-Simple_6.30.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,9 +282,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05E74CD61F06230400C14034 /* Build configuration list for PBXNativeTarget "Simple_6.30" */;
 			buildPhases = (
+				E6C1605AEFD6C56AE6CD092D /* [CP] Check Pods Manifest.lock */,
 				05E74CA51F06230400C14034 /* Sources */,
 				05E74CA61F06230400C14034 /* Frameworks */,
 				05E74CA71F06230400C14034 /* Resources */,
+				DDA7EE4EA2723E2796E68E90 /* [CP] Embed Pods Frameworks */,
+				52F1707FCE260ED2F8471B43 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -384,6 +411,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52F1707FCE260ED2F8471B43 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simple_6.30/Pods-Simple_6.30-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDA7EE4EA2723E2796E68E90 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simple_6.30/Pods-Simple_6.30-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6C1605AEFD6C56AE6CD092D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		05E74CA51F06230400C14034 /* Sources */ = {
@@ -541,6 +616,7 @@
 		};
 		05E74CD71F06230400C14034 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3413F98DCB45D75D727CFDD9 /* Pods-Simple_6.30.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -549,11 +625,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fsd.Simple-6-30";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		05E74CD81F06230400C14034 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43F756500311305805FCF18A /* Pods-Simple_6.30.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -562,6 +640,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fsd.Simple-6-30";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
