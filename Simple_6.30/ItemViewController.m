@@ -35,16 +35,6 @@
                                                                                  action:@selector(takePicture:)];
     navItem.rightBarButtonItem = cameraBarButton;
     
-    //设置初始头像
-//    if(Item.itemKey == nil){
-//        if([Item.name isEqualToString:@"程彦博"]){
-//            _imgView.image = [UIImage imageNamed:@"WechatIMG1.jpeg"];
-//        }
-//        else{
-//            _imgView.image = [UIImage imageNamed:@"WechatIMG2.jpeg"];
-//        }
-//
-//    }
    }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -58,7 +48,7 @@
                 _imgView.image = imageToShow;
     }
     else{
-        if([Item.name isEqualToString:@"程彦博"]){
+        if([Item.name isEqualToString:@"哈维·阿隆索"]){
             _imgView.image = [UIImage imageNamed:@"WechatIMG1.jpeg"];
         }
         else{
