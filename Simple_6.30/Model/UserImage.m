@@ -24,6 +24,12 @@
         sharedUser = [[self alloc] initPrivate];
     }
     
+    //线程安全的单例 保证多线程应用中也只创建一个对象 效果和上面的代码相同
+    static dispatch_once_t oncetoken;
+    dispatch_once(&oncetoken, ^{
+        sharedUser = [[self alloc] initPrivate];
+    });
+    
     return sharedUser;
 }
 

@@ -10,8 +10,6 @@
 
 @interface MainViewController ()
 
-@property (nonatomic,strong) NSMutableArray *mateData;
-
 @end
 
 @implementation MainViewController
@@ -20,19 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"mates" ofType:@"plist"];//获取plist文件路径
-    _mateData = [[NSMutableArray alloc] initWithContentsOfFile:filePath];//读取指定路径的plist
-    NSLog(@"dom members : %lu",(unsigned long)[_mateData count]);
-    
-    for (NSString *string in _mateData) {//快速枚举
-        NSLog(@"mateData content is %@",string);
-        [[User sharedUser]creatItem:string];
-    }
-    //_name.text = [mateData objectAtIndex:arc4random() % 4]; 随机数
-    //curr = [[_mateData objectAtIndex:0] integerValue];
     curr = [[[User sharedUser] allItems] count];
-    //NSLog(@"curr is now %ld",(long)curr);
     
 }
 

@@ -75,11 +75,17 @@
     return _headView;
 }
 
+#pragma mark - Actions
+
 - (IBAction)newItem:(id)sender{
     UserItem *newItem = [[User sharedUser] creatItem:@"临时数据"];
-    NSInteger lastRow = [[[User sharedUser] allItems] indexOfObject:newItem];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+//    NSInteger lastRow = [[[User sharedUser] allItems] indexOfObject:newItem];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+//    [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    ItemViewController *itemVC = [[ItemViewController alloc] initForNewItem:YES];
+    itemVC.item = newItem;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemVC];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 //- (IBAction)editItem:(id)sender{
@@ -176,12 +182,8 @@
         NSArray *items = [[User sharedUser] allItems];
         UserItem *item = items[indexPath.row];
         NSString *del;
-        if([item.name isEqualToString:@"程彦博"]){
+        
             del = [[NSString alloc]initWithFormat :@"%@,%@", @"再见",  item.name];
-        }
-        else{
-            del = [[NSString alloc]initWithFormat :@"%@,%@", @"滚吧",  item.name];
-        }
         return del;
     }
     else
@@ -249,7 +251,8 @@ targetIndexPathForMoveFromRowAtIndexPath: (NSIndexPath* ) source
     // Navigation logic may go here, for example:
     // Create the next view controller.
     if(indexPath.row < [[[User sharedUser] allItems] count]){
-        ItemViewController *detailViewController = [[ItemViewController alloc] init];
+        //ItemViewController *detailViewController = [[ItemViewController alloc] init];
+        ItemViewController *detailViewController = [[ItemViewController alloc] initForNewItem:NO];
         
         // Pass the selected object to the new view controller.
         NSArray *items = [[User sharedUser] allItems];

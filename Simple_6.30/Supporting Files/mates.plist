@@ -2,11 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>哈维·阿隆索</string>
-	<string>梁朝伟</string>
-	<string>莱昂纳多</string>
-	<string>葛优</string>
-	<string>阿尔·帕西诺</string>
-	<string>张国荣</string>
+	<dict>
+		<key>name</key>
+		<string>哈维·阿隆索</string>
+		<key>itemKey</key>
+		<string></string>
+	</dict>
 </array>
 </plist>

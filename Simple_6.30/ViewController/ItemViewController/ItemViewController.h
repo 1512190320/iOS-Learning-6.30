@@ -10,9 +10,10 @@
 
 @class UserItem;
 
-@interface ItemViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ItemViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
 
 @property(nonatomic,strong) UserItem *item;
 
+-(instancetype)initForNewItem: (BOOL)isNew;
 
 @end
