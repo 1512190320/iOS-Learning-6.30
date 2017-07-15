@@ -20,4 +20,4 @@ ipad应用有更多样式（背景变黑等），而iphone只有一种
 
 1、用文件新建和代码新建的读取文件路径方式不同
 
-2、writeToFile时数据类型需保持一致（或者需要为字典？ 没验证）
+2、plist只能存储字典和数组，字典和数组里面保存的数据必须是 Boolean，Data，Date，Number，String  
