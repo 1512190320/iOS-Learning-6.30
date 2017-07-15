@@ -21,5 +21,8 @@
 -(void)removeItem:(UserItem *)item;
 -(void)moveItemAtIndex:(NSUInteger)from
                toIndex:(NSUInteger)to;
+//归档
+-(Boolean)saveChanges;
+
 
 @end

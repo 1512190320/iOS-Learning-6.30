@@ -39,7 +39,19 @@
 -(instancetype)initPrivate{
     self = [super init];
     if(self){
-        _privateItems = [[NSMutableArray alloc] init];
+        //_privateItems = [[NSMutableArray alloc] init];
+
+//-----------归档------------
+        NSString *path = [self itemArchivePath];
+        NSLog(@"path : %@",path);
+        
+        //创建一个NSKeyedUnarchiver 对象，根据路径载入归档文件
+        _privateItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        if(!_privateItems){
+            _privateItems = [[NSMutableArray alloc] init];
+        }
+//---------------------------
     }
     
     return self;
@@ -76,6 +88,28 @@
     
 }
 
+//-----------归档------------
+
+-(Boolean)saveChanges{
+    NSString *path = [self itemArchivePath];
+    
+    //如果归档成功 返回yes  archiveRootObject: toFile: 会将privateItems中所有item保存到路径为itemArchivePath的文件
+    return [NSKeyedArchiver archiveRootObject:self.privateItems
+                                       toFile:path];
+}
+
+-(NSString *)itemArchivePath{
+    //获取全路径
+    NSArray *documentDirctories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    //从documentDirctories获取第一个，也是唯一一个文档目录路径
+    NSString *documentdirectory = [documentDirctories firstObject];
+    
+    return [documentdirectory stringByAppendingPathComponent:@"items.archive"];
+}
+
+//--------------------------
+
 -(void)moveItemAtIndex:(NSUInteger)from toIndex:(NSUInteger)to{
     if(from == to)
         return;
@@ -86,4 +120,6 @@
     [self.privateItems insertObject:item atIndex:to];
     
 }
+
+
 @end

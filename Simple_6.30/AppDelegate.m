@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "User.h"
 #import "TestBarViewController.h"
 #import "MainViewController.h"
 #import "AdjustViewController.h"
@@ -41,17 +42,18 @@
     
     UITabBarController *tabbarC = [[UITabBarController alloc] init];
     
-    //对plist的数据读取
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"mates" ofType:@"plist"];//获取plist文件路径
-    NSMutableArray *mateData = [[NSMutableArray alloc] initWithContentsOfFile:filePath];//读取指定路径的plist
-    NSLog(@"dom members : %lu",(unsigned long)[mateData count]);
-    
-    
-    for (NSDictionary *string in mateData) {//快速枚举
-        NSLog(@"mateData content is %@",[string objectForKey:@"name"]);
-        [[User sharedUser]creatItem:[string objectForKey:@"name"]];
-    }
-    
+//-----------对plist的数据读取----------
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"mates" ofType:@"plist"];//获取plist文件路径
+//    NSMutableArray *mateData = [[NSMutableArray alloc] initWithContentsOfFile:filePath];//读取指定路径的plist
+//    NSLog(@"dom members : %lu",(unsigned long)[mateData count]);
+//    
+//    
+//    for (NSDictionary *string in mateData) {//快速枚举
+//        NSLog(@"mateData content is %@",[string objectForKey:@"name"]);
+//        [[User sharedUser]creatItem:[string objectForKey:@"name"]];
+//        NSLog(@"mateData itemKey is %@",[string objectForKey:@"itemKey"]);
+//    }
+//------------------------------------------
     
     tabbarC.viewControllers = @[navFir,navSec,navThi];
     
@@ -73,7 +75,13 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
+    Boolean success = [[User sharedUser] saveChanges];
+    if(success){
+        NSLog(@"保存成功");
+    }
+    else{
+        NSLog(@"保存失败");
+    }
 }
 
 
@@ -89,26 +97,28 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+//-----------对plist的数据读取----------
     
-    NSLog(@"%@", [[User sharedUser] allItems]);
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    
-    for (UserItem *item in [[User sharedUser] allItems]) {//快速枚举
-        NSDictionary *itemDic = [NSDictionary dictionaryWithObjectsAndKeys:item.name,@"name",item.itemKey,@"itemKey",nil];
-        [array addObject:itemDic];
-    }
-    NSLog(@"array is : %@",array);
-    
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"mates" ofType:@"plist"];//获取plist文件路径
-    
-    [array writeToFile:filePath atomically:YES];
-    
-    NSMutableArray *mateData = [[NSMutableArray alloc] initWithContentsOfFile:filePath];//读取指定路径的plis
-    
-    for (NSDictionary *string in mateData) {//快速枚举
-        NSLog(@"mateData name is %@",[string objectForKey:@"name"]);
-        NSLog(@"mateData itemKey is %@",[string objectForKey:@"itemKey"]);
-    }
+//    NSLog(@"%@", [[User sharedUser] allItems]);
+//    NSMutableArray *array = [[NSMutableArray alloc] init];
+//    
+//    for (UserItem *item in [[User sharedUser] allItems]) {//快速枚举
+//        NSDictionary *itemDic = [NSDictionary dictionaryWithObjectsAndKeys:item.name,@"name",item.itemKey,@"itemKey",nil];
+//        [array addObject:itemDic];
+//    }
+//    NSLog(@"array is : %@",array);
+//    
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"mates" ofType:@"plist"];//获取plist文件路径
+//    
+//    [array writeToFile:filePath atomically:YES];
+//    
+//    NSMutableArray *mateData = [[NSMutableArray alloc] initWithContentsOfFile:filePath];//读取指定路径的plis
+//    
+//    for (NSDictionary *string in mateData) {//快速枚举
+//        NSLog(@"mateData name is %@",[string objectForKey:@"name"]);
+//        NSLog(@"mateData itemKey is %@",[string objectForKey:@"itemKey"]);
+//    }
+//--------------------------------------
 }
 
 
