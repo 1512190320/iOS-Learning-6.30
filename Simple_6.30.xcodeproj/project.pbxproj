@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05836B9A1F1B0B2F002F9364 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05836B981F1B0B2F002F9364 /* LoginViewController.m */; };
 		05E74CAE1F06230400C14034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74CAD1F06230400C14034 /* main.m */; };
 		05E74CB11F06230400C14034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74CB01F06230400C14034 /* AppDelegate.m */; };
 		05E74CB91F06230400C14034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05E74CB81F06230400C14034 /* Assets.xcassets */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05836B971F1B0B2F002F9364 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		05836B981F1B0B2F002F9364 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		05E74CA91F06230400C14034 /* Simple_6.30.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple_6.30.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E74CAD1F06230400C14034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05E74CAF1F06230400C14034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05836B961F1B0AFA002F9364 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				05836B971F1B0B2F002F9364 /* LoginViewController.h */,
+				05836B981F1B0B2F002F9364 /* LoginViewController.m */,
+			);
+			name = LoginViewController;
+			sourceTree = "<group>";
+		};
 		05E74CA01F06230400C14034 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +199,7 @@
 		05E74CE41F0626AF00C14034 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				05836B961F1B0AFA002F9364 /* LoginViewController */,
 				05E74CEA1F06273500C14034 /* AdjustViewController */,
 				05E74CFD1F0657BF00C14034 /* HistoryViewController */,
 				05E74D0D1F0C8ED200C14034 /* ItemViewController */,
@@ -474,6 +487,7 @@
 				05E74D191F0DDEB800C14034 /* UserImage.m in Sources */,
 				05E74CF31F06277800C14034 /* MainViewController.m in Sources */,
 				05E74D061F078F2B00C14034 /* HistoryViewController.m in Sources */,
+				05836B9A1F1B0B2F002F9364 /* LoginViewController.m in Sources */,
 				05E74CAE1F06230400C14034 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,6 +633,7 @@
 			baseConfigurationReference = 3413F98DCB45D75D727CFDD9 /* Pods-Simple_6.30.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Simple_6.30/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = Simple_6.30/Info.plist;
@@ -634,6 +649,7 @@
 			baseConfigurationReference = 43F756500311305805FCF18A /* Pods-Simple_6.30.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Simple_6.30/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = Simple_6.30/Info.plist;

@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "LoginViewController.h"
 
 @interface MainViewController ()
 
@@ -19,7 +20,13 @@
     // Do any additional setup after loading the view from its nib.
     
     curr = [[[User sharedUser] allItems] count];
+    [self setLogin];
     
+}
+
+- (void)setLogin{
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    [self.navigationController pushViewController:loginVC animated:NO];
 }
 
 -(IBAction)doNext:(id)sender
