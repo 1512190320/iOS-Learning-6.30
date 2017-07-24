@@ -10,6 +10,7 @@
 #import "UserItem.h"
 #import "User.h"
 #import "ItemViewController.h"
+#import "ItemCell.h"
 
 @interface HistoryViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 

@@ -11,8 +11,10 @@
 @interface UserItem : NSObject<NSCoding>
 
 @property(nonatomic,strong) NSString *name;
-@property(nonatomic,strong) NSString *itemKey;
+@property(nonatomic,copy) NSString *itemKey;
+@property(nonatomic,strong)UIImage *thunbNail;
 
 - (instancetype)initWithItemName:(NSString *)name;
+-(void)setThunbNailFormImage:(UIImage *)image;
 
 @end

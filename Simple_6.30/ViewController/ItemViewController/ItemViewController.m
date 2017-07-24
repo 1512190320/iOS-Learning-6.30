@@ -61,7 +61,7 @@
                                                                             metrics:nil
                                                                               views:nameMap
                                      ];
-    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[submitButton]-10-[imageView]-50-|"
+    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[submitButton]-10-[imageView]-54-|"
                                                                            options:0
                                                                            metrics:nil
                                                                              views:nameMap];
@@ -172,7 +172,7 @@
 didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     //通过info字典获取选择照片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    
+    [self.item setThunbNailFormImage:image];
     //以itemKey为键，将照片存入userimage
     [[UserImage sharedUser] setImage:image forKey:self.item.itemKey];
     

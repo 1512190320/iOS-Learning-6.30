@@ -44,7 +44,15 @@
     
     //注册cell
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"noMore"];
+    //[_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"noMore"];
+    
+    //创建UINib对象 包含了itemcell的nib文件
+    UINib *nib = [UINib nibWithNibName:@"ItemCell" bundle:nil];
+    
+    //通过UINib对象注册相应的Nib文件
+    [_tableView registerNib:nib forCellReuseIdentifier:@"ItemCell"];
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -121,7 +129,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows
-    return [[[User sharedUser] allItems] count] + 1;
+    return [[[User sharedUser] allItems] count];
 }
 
 
@@ -133,20 +141,31 @@
 //    if(!cell){
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
 //    }
-    UITableViewCell *cell;
+//    NSArray *items = [[User sharedUser] allItems];
+//-------原始cell的添加------
+//    UITableViewCell *cell;
+//    if(indexPath.row < [[[User sharedUser] allItems] count]){
+//        cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+//        //cell.textLabel.text = item.name;
+//    }
+//    else{
+//        cell = [tableView dequeueReusableCellWithIdentifier:@"noMore" forIndexPath:indexPath];
+//        cell.textLabel.text = @"no more";
+//        cell.textLabel.textColor = [UIColor grayColor];
+//        cell.textLabel.textAlignment = NSTextAlignmentCenter;//文字居中
+//    }
+    //return cell;
+
+    
+//-------自定义cell的添加------
     NSArray *items = [[User sharedUser] allItems];
-    if(indexPath.row < [[[User sharedUser] allItems] count]){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-        UserItem *item = items[indexPath.row];
-        cell.textLabel.text = item.name;
-    }
-    else{
-        cell = [tableView dequeueReusableCellWithIdentifier:@"noMore" forIndexPath:indexPath];
-        cell.textLabel.text = @"no more";
-        cell.textLabel.textColor = [UIColor grayColor];
-        cell.textLabel.textAlignment = NSTextAlignmentCenter;//文字居中
-    }
-    return cell;
+    ItemCell *cellItem = [tableView dequeueReusableCellWithIdentifier:@"ItemCell" forIndexPath:indexPath];
+    UserItem *item = items[indexPath.row];
+    cellItem.mainLable.text = item.name;
+    cellItem.subLable.text = item.name;
+    cellItem.rightLable.text = item.name;
+    cellItem.imgView.image = item.thunbNail;
+    return cellItem;
 }
 
 
@@ -163,14 +182,13 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //如果tableview 请求确认删除操作
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        if(indexPath.row < [[[User sharedUser] allItems] count]){
             // 从data source删除数据
             NSArray *items = [[User sharedUser] allItems];
             UserItem *item = items[indexPath.row];
             [[User sharedUser] removeItem:item];
             //删除表格中的对应行 用fade的动画效果(暂时没看出有啥区别...)
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        }
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
@@ -178,16 +196,12 @@
 
 //自定义删除文字
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row < [[[User sharedUser] allItems] count]){
         NSArray *items = [[User sharedUser] allItems];
         UserItem *item = items[indexPath.row];
         NSString *del;
         
             del = [[NSString alloc]initWithFormat :@"%@,%@", @"再见",  item.name];
         return del;
-    }
-    else
-        return @"Unable";
 }
 
 
@@ -201,47 +215,8 @@
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
-    //设置可以滑动
-    NSArray *items = [[User sharedUser] allItems];
-    //最后一行不可滑动
-    if (indexPath.row == [items count]){
-        return NO;
-    }
-    //只有一行数据时也不可滑动
-    else if([items count] == 1){
-        return NO;
-    }
     return YES;
 }
-
--(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.row < [[[User sharedUser] allItems] count])
-        return   UITableViewCellEditingStyleDelete;
-    else
-        return UITableViewCellEditingStyleNone;
-}
-
--(NSIndexPath *) tableView: (UITableView* ) tableView
-targetIndexPathForMoveFromRowAtIndexPath: (NSIndexPath* ) source
-      toProposedIndexPath: (NSIndexPath* ) destination
-{
-    NSArray *items = [[User sharedUser] allItems];
-    //如果移动到最后一行以外的行
-    if (destination.row < [items count]) {
-        return destination;
-    }
-    NSIndexPath * indexPath = nil;
-    // If your table can have <= 2 items, you might want to robusticize the index math.
-    if (destination.row == 0) {
-        indexPath = [NSIndexPath indexPathForRow: 1  inSection: 0];
-    } else {
-        indexPath = [NSIndexPath indexPathForRow: items.count - 2
-                                       inSection: 0];
-    }
-    return indexPath;
-}
-
 
 
 #pragma mark - Table view delegate
@@ -250,7 +225,6 @@ targetIndexPathForMoveFromRowAtIndexPath: (NSIndexPath* ) source
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    if(indexPath.row < [[[User sharedUser] allItems] count]){
         //ItemViewController *detailViewController = [[ItemViewController alloc] init];
         ItemViewController *detailViewController = [[ItemViewController alloc] initForNewItem:NO];
         
@@ -265,7 +239,7 @@ targetIndexPathForMoveFromRowAtIndexPath: (NSIndexPath* ) source
         [self.navigationController pushViewController:detailViewController animated:YES];
         //push结束后再显示
         self.hidesBottomBarWhenPushed = NO;
-    }
+    
     
 }
 
