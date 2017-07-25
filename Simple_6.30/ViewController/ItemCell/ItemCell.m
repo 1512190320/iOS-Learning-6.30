@@ -15,6 +15,14 @@
     // Initialization code
 }
 
+
+
+-(IBAction)showImage:(id)sender{
+    if(self.actionBlock){
+        self.actionBlock();
+    }
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

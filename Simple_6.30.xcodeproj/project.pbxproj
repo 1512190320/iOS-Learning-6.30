@@ -131,7 +131,7 @@
 				05836B971F1B0B2F002F9364 /* LoginViewController.h */,
 				05836B981F1B0B2F002F9364 /* LoginViewController.m */,
 			);
-			name = LoginViewController;
+			path = LoginViewController;
 			sourceTree = "<group>";
 		};
 		05C6BFE11F2589FB009C486D /* ItemCell */ = {
@@ -141,18 +141,18 @@
 				05C6BFE31F258A69009C486D /* ItemCell.m */,
 				05C6BFE51F258B99009C486D /* ItemCell.xib */,
 			);
-			name = ItemCell;
+			path = ItemCell;
 			sourceTree = "<group>";
 		};
 		05E74CA01F06230400C14034 = {
 			isa = PBXGroup;
 			children = (
 				05E74CAB1F06230400C14034 /* Simple_6.30 */,
-				05E74CAA1F06230400C14034 /* Products */,
 				05E74CC51F06230400C14034 /* Simple_6.30Tests */,
 				05E74CD01F06230400C14034 /* Simple_6.30UITests */,
-				4C87937AC830FAD857C144FE /* Pods */,
 				7689A424258A80B59A83AB13 /* Frameworks */,
+				4C87937AC830FAD857C144FE /* Pods */,
+				05E74CAA1F06230400C14034 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,7 +200,7 @@
 				05E74CC61F06230400C14034 /* Simple_6_30Tests.m */,
 			);
 			path = Simple_6.30Tests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		05E74CD01F06230400C14034 /* Simple_6.30UITests */ = {
 			isa = PBXGroup;
@@ -209,16 +209,16 @@
 				05E74CD11F06230400C14034 /* Simple_6_30UITests.m */,
 			);
 			path = Simple_6.30UITests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		05E74CE41F0626AF00C14034 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				05C6BFE11F2589FB009C486D /* ItemCell */,
-				05836B961F1B0AFA002F9364 /* LoginViewController */,
 				05E74CEA1F06273500C14034 /* AdjustViewController */,
 				05E74CFD1F0657BF00C14034 /* HistoryViewController */,
+				05C6BFE11F2589FB009C486D /* ItemCell */,
 				05E74D0D1F0C8ED200C14034 /* ItemViewController */,
+				05836B961F1B0AFA002F9364 /* LoginViewController */,
 				05E74CE61F0626DF00C14034 /* MainViewController */,
 				05E74CE51F0626CD00C14034 /* TestBarViewController */,
 			);

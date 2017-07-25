@@ -13,4 +13,7 @@
 @property (nonatomic,weak) IBOutlet UILabel *mainLable;
 @property (nonatomic,weak) IBOutlet UILabel *subLable;
 @property (nonatomic,weak) IBOutlet UILabel *rightLable;
+
+@property(nonatomic,copy) void (^actionBlock)(void);
+
 @end

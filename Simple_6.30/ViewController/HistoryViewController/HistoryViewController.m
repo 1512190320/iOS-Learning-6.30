@@ -8,13 +8,17 @@
 
 #import "HistoryViewController.h"
 
-@interface HistoryViewController ()
+@interface HistoryViewController () 
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,weak) IBOutlet UIView *headView;
 @property (nonatomic, weak) IBOutlet UIButton *editButton;
 @property (nonatomic, weak) IBOutlet UIButton *addButton;
 @property(nonatomic,strong) UIBarButtonItem *editBarButton;
+
+@property (nonatomic, strong) UIView *bgView;// 阴影视图
+@property (nonatomic, strong) UIImageView *smallImageView;// 小图视图
+@property (nonatomic, strong) UIImageView *bigImageView;// 大图视图
 
 @end
 
@@ -165,9 +169,95 @@
     cellItem.subLable.text = item.name;
     cellItem.rightLable.text = item.name;
     cellItem.imgView.image = item.thunbNail;
+    
+    
+    
+    NSString *itemKey = item.itemKey;
+    //由itemkey来寻找照片
+    UIImage *imageToShow = [[UserImage sharedUser] imageForKey:itemKey];
+    
+    cellItem.actionBlock = ^{
+        NSLog(@"actionBlock ---> show big image");
+        
+        
+        if (nil == _bigImageView) {
+            if(imageToShow == nil){
+                //无大图
+                return;
+            }
+            else{
+                //_bigImageView.image = imageToShow;
+                _bigImageView = [[UIImageView alloc] initWithImage:imageToShow];
+                [_bigImageView setFrame:CGRectMake(0, (SCREEN_HEIGHT - SCREEN_WIDTH) / 2, SCREEN_WIDTH, SCREEN_WIDTH)];
+            }
+            // 设置大图的点击响应，此处为收起大图
+            _bigImageView.userInteractionEnabled = YES;
+            UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissBigImage)];
+            [_bigImageView addGestureRecognizer:imageTap];
+        }
+
+        
+        // 让大图从小图的位置和大小开始出现
+        CGRect originFram = _bigImageView.frame;
+        _bigImageView.frame = self.smallImageView.frame;
+        [self.view addSubview:_bigImageView];
+        
+        // 动画到大图该有的大小
+        [UIView animateWithDuration:0.3 animations:^{
+            // 改变大小
+            _bigImageView.frame = originFram;
+            // 改变位置
+            _bigImageView.center = self.view.center;// 设置中心位置到新的位置
+        }];
+        
+        // 添加阴影视图
+        [self bgView];
+        [self.view addSubview:_bgView];
+        
+        // 将大图放到最上层，否则会被后添加的阴影盖住
+        [self.view bringSubviewToFront:_bigImageView];
+        
+        
+    };
+    
     return cellItem;
 }
 
+// 阴影视图
+- (UIView *)bgView {
+    if (nil == _bgView) {
+        _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        _bgView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+        // 设置阴影背景的点击响应，此处为收起大图
+        _bgView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *bgTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissBigImage)];
+        [_bgView addGestureRecognizer:bgTap];
+    }
+    return _bgView;
+}
+
+// 收起大图
+- (void)dismissBigImage {
+    [self.bgView removeFromSuperview];// 移除阴影
+    
+    // 将大图动画回小图的位置和大小
+    [UIView animateWithDuration:0.3 animations:^{
+        // 改变大小
+        _bigImageView.frame = self.smallImageView.frame;
+        // 改变位置
+        _bigImageView.center = self.smallImageView.center;// 设置中心位置到新的位置
+    }];
+    
+    // 延迟执行，移动回后再消灭掉
+    double delayInSeconds = 0.3;
+    __block HistoryViewController* bself = self;            //使变量可在block中被修改
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [bself.bigImageView removeFromSuperview];
+        bself.bigImageView = nil;
+        bself.bgView = nil;
+    });
+}
 
 /*
 // Override to support conditional editing of the table view.

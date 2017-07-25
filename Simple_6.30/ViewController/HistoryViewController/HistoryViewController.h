@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UserItem.h"
 #import "User.h"
+#import "UserImage.h"
 #import "ItemViewController.h"
 #import "ItemCell.h"
 
