@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0512462F1F9366730018E9FF /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512462E1F9366730018E9FF /* NetWork.m */; };
 		05836B9A1F1B0B2F002F9364 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05836B981F1B0B2F002F9364 /* LoginViewController.m */; };
 		05C6BFE41F258A69009C486D /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C6BFE31F258A69009C486D /* ItemCell.m */; };
 		05C6BFE61F258B99009C486D /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C6BFE51F258B99009C486D /* ItemCell.xib */; };
@@ -20,7 +21,6 @@
 		05E74CEE1F06276500C14034 /* AdjustViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74CEC1F06276500C14034 /* AdjustViewController.m */; };
 		05E74CEF1F06276500C14034 /* AdjustViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E74CED1F06276500C14034 /* AdjustViewController.xib */; };
 		05E74CF31F06277800C14034 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74CF11F06277800C14034 /* MainViewController.m */; };
-		05E74CF41F06277800C14034 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E74CF21F06277800C14034 /* MainViewController.xib */; };
 		05E74CFA1F062E5F00C14034 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74CF91F062E5F00C14034 /* User.m */; };
 		05E74CFC1F0638BB00C14034 /* mates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05E74CFB1F0638BB00C14034 /* mates.plist */; };
 		05E74D061F078F2B00C14034 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74D041F078F2B00C14034 /* HistoryViewController.m */; };
@@ -52,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0512462D1F9366730018E9FF /* NetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWork.h; sourceTree = "<group>"; };
+		0512462E1F9366730018E9FF /* NetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
 		05836B971F1B0B2F002F9364 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		05836B981F1B0B2F002F9364 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		05C6BFE21F258A69009C486D /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
@@ -263,6 +265,8 @@
 				05E74D181F0DDEB800C14034 /* UserImage.m */,
 				05E74D081F09E86700C14034 /* UserItem.h */,
 				05E74D091F09E86700C14034 /* UserItem.m */,
+				0512462D1F9366730018E9FF /* NetWork.h */,
+				0512462E1F9366730018E9FF /* NetWork.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -420,7 +424,6 @@
 				05E74D121F0C8EFB00C14034 /* ItemViewController.xib in Resources */,
 				05E74CFC1F0638BB00C14034 /* mates.plist in Resources */,
 				05E74D141F0DCBCE00C14034 /* WechatIMG1.jpeg in Resources */,
-				05E74CF41F06277800C14034 /* MainViewController.xib in Resources */,
 				05E74D161F0DD88700C14034 /* WechatIMG2.jpeg in Resources */,
 				05E74D0C1F0A302600C14034 /* HistoryHeader.xib in Resources */,
 			);
@@ -497,6 +500,7 @@
 			files = (
 				05C6BFE41F258A69009C486D /* ItemCell.m in Sources */,
 				05E74CB11F06230400C14034 /* AppDelegate.m in Sources */,
+				0512462F1F9366730018E9FF /* NetWork.m in Sources */,
 				05E74D111F0C8EFB00C14034 /* ItemViewController.m in Sources */,
 				05E74CE11F06235C00C14034 /* TestBarViewController.m in Sources */,
 				05E74CFA1F062E5F00C14034 /* User.m in Sources */,

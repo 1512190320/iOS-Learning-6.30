@@ -43,7 +43,7 @@
 
 //-----------归档------------
         NSString *path = [self itemArchivePath];
-        NSLog(@"path : %@",path);
+        //NSLog(@"path : %@",path);
         
         //创建一个NSKeyedUnarchiver 对象，根据路径载入归档文件
         _privateItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];

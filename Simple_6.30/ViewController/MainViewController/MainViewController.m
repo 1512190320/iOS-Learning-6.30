@@ -11,6 +11,10 @@
 
 @interface MainViewController ()
 
+@property(nonatomic,strong) UITextView *textview;
+@property(nonatomic,strong) UIButton *dogButton;
+@property(nonatomic,strong) UIButton *nextButton;
+
 @end
 
 @implementation MainViewController
@@ -18,10 +22,78 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    curr = [[[User sharedUser] allItems] count];
+//    curr = [[[User sharedUser] allItems] count];
     [self setLogin];
     
+    _KYNet = [NetWork shareNetWork];
+    _KYNet.delegate = self;
+    
+    _dogButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40, SCREEN_HEIGHT/2-188, 80, 44)];
+    _dogButton.center = CGPointMake(SCREEN_WIDTH/2, _dogButton.center.y);
+    [_dogButton setTitle:@"dog fact" forState:UIControlStateNormal];
+    [_dogButton setBackgroundColor:[UIColor blueColor]];
+    _dogButton.layer.shadowRadius = 5;                        //阴影半径
+    _dogButton.layer.shadowOpacity = 0.2;                     //阴影透明度
+    _dogButton.layer.shadowOffset = CGSizeMake(0, 1);         //阴影偏移
+    [_dogButton addTarget:self action:@selector(dogButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    _dogButton.showsTouchWhenHighlighted = YES;
+    [self.view addSubview:_dogButton];
+    
+    _textview = [[UITextView alloc] initWithFrame:CGRectMake(40, 250, SCREEN_WIDTH-80, SCREEN_HEIGHT/3)];
+    _textview.textColor = [UIColor blackColor];
+    _textview.font = [UIFont systemFontOfSize:20.f];
+    _textview.textAlignment = NSTextAlignmentCenter;
+    _textview.editable = NO;
+    [self.view addSubview:_textview];
+    
+    _nextButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    _nextButton.frame =CGRectMake(SCREEN_WIDTH/2-40, SCREEN_HEIGHT/2+168, 80, 44);
+    _nextButton.center = CGPointMake(SCREEN_WIDTH/2, _nextButton.center.y);
+    [_nextButton setTitle:@"next" forState:UIControlStateNormal];
+    _nextButton.showsTouchWhenHighlighted = YES;
+    _nextButton.alpha = 0.f;
+    [self.view addSubview:_nextButton];
+    
+    
+}
+
+-(void)dogButtonAction{
+    _progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:_progressHUD];
+    [self.view bringSubviewToFront:_progressHUD];
+    _progressHUD.delegate = self;
+    _progressHUD.label.text = @"数据请求中……";
+    [_progressHUD showAnimated:YES];
+    [_KYNet getDogFact];
+}
+-(void)getDogFactSuccessFeedback:(id)feedbackInfo{
+    //当服务器返回成功数据后，下列代码被激活
+    if(_progressHUD){
+        [_progressHUD removeFromSuperview];
+        _progressHUD = nil;
+    }
+    [_nextButton addTarget:self action:@selector(nextButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    _nextButton.alpha = 1.f;
+    NSLog(@"%@",[feedbackInfo class]);
+    NSDictionary *dic=feedbackInfo;
+
+    facts = [dic objectForKey:@"facts"];
+    curr = 0;
+    _textview.text = facts[curr];
+    
+}
+-(void)nextButtonAction{
+    if(curr < facts.count - 1)
+        curr ++;
+    else
+        curr = 0;
+    _textview.text = facts[curr];
+}
+
+-(void)getDogFactFailFeedback:(id)failInfo{
+    NSLog(@"%@",failInfo);
 }
 
 - (void)setLogin{
@@ -29,16 +101,16 @@
     [self.navigationController pushViewController:loginVC animated:NO];
 }
 
--(IBAction)doNext:(id)sender
-{
-    //NSLog(@"press next");
-    if(curr < [[[User sharedUser] allItems] count] - 1)
-        curr ++;
-    else
-        curr = 0;
-    _name.text = [[[[User sharedUser] allItems] objectAtIndex:curr] name];
-    //NSLog(@"after press curr is now %ld",(long)curr);
-}
+//-(IBAction)doNext:(id)sender
+//{
+//    //NSLog(@"press next");
+//    if(curr < [[[User sharedUser] allItems] count] - 1)
+//        curr ++;
+//    else
+//        curr = 0;
+//    _name.text = [[[[User sharedUser] allItems] objectAtIndex:curr] name];
+//    //NSLog(@"after press curr is now %ld",(long)curr);
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

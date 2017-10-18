@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="UserAssetType" representedClassName="UserAssetType" syncable="YES" codeGenerationType="class">
+        <attribute name="lable" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserItem" inverseName="assetType" inverseEntity="UserItem" syncable="YES"/>
+    </entity>
+    <entity name="UserItem" representedClassName="UserItem" syncable="YES" codeGenerationType="class">
+        <attribute name="itemKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbNail" optional="YES" attributeType="Transformable" valueTransformerName="UserImageTransformer" syncable="YES"/>
+        <relationship name="assetType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserAssetType" inverseName="items" inverseEntity="UserAssetType" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UserItem" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="UserAssetType" positionX="-54" positionY="9" width="128" height="75"/>
+    </elements>
+</model>

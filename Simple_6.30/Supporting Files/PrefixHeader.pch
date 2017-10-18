@@ -18,6 +18,7 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import "AFNetworking.h"
 #endif
 
 #endif /* PrefixHeader_pch */

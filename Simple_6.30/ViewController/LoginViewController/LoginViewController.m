@@ -88,11 +88,38 @@
     _progressHUD.label.text = @"登录中……";
     [_progressHUD showAnimated:YES];
     
-    if (_progressHUD){
-        [_progressHUD removeFromSuperview];
-        _progressHUD = nil;
-    }
+    //NSString *url = [NSString stringWithFormat:@"%@",@"http://192.168.199.117:8080/SimpleWebPoject/LoginServlet"];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSDictionary *parameter = @{@"userName":_userNameTextField.text,
+                                @"Password":_passWordTextField.text,
+                                @"gender":@"0"};
+    //NSDictionary *parameter = @{@"username":@"666",
+    //                            @"password":@"666",
+    //                    @"gender":@"0"};
+    
+    
+//    [manager POST:url parameters:parameter
+//          success:^(NSURLSessionDataTask *task, id responseObject){
+//              NSLog(@"success");
+//              if (_progressHUD){
+//                  [_progressHUD removeFromSuperview];
+//                  _progressHUD = nil;
+//                  //NSLog(@"%@",responseObject);
+//              }
+//              [self.navigationController popViewControllerAnimated:YES];
+//          }
+//          failure:^(NSURLSessionDataTask *task, NSError *error){
+//              _progressHUD.label.text = @"error.";
+//              NSLog(@"error: %@", error);
+//          }];
+
      [self.navigationController popViewControllerAnimated:YES];
+    
+    
     
 }
 
