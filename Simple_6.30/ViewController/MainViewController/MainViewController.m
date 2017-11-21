@@ -84,6 +84,19 @@
     _textview.text = facts[curr];
     
 }
+
+-(void)getDogFactFailFeedback:(id)failInfo{
+    NSLog(@"%@",failInfo);
+    if(_progressHUD){
+        // Set the text mode to show only text.
+        _progressHUD.removeFromSuperViewOnHide = YES;
+        _progressHUD.mode = MBProgressHUDModeText;
+        _progressHUD.label.text = @"Error";
+        [_progressHUD hideAnimated:YES afterDelay:1.f];
+    }
+    
+}
+
 -(void)nextButtonAction{
     if(curr < facts.count - 1)
         curr ++;
@@ -92,9 +105,7 @@
     _textview.text = facts[curr];
 }
 
--(void)getDogFactFailFeedback:(id)failInfo{
-    NSLog(@"%@",failInfo);
-}
+
 
 - (void)setLogin{
     LoginViewController *loginVC = [[LoginViewController alloc] init];
