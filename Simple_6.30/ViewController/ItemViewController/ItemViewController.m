@@ -29,6 +29,7 @@
     
     _itemName.text = Item.name;
     [_itemName sizeToFit];
+    [_itemName setTextColor:[UIColor whiteColor]];
     
 //    UINavigationItem *navItem = self.navigationItem;
 //    navItem.title = @"条目详情";
@@ -36,6 +37,7 @@
     _adjTF.returnKeyType = UIReturnKeyDone;
     _adjTF.delegate = self;
     
+    [_subButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     
 //    UIBarButtonItem *cameraBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
@@ -44,29 +46,29 @@
 //    navItem.rightBarButtonItem = cameraBarButton;
     
 //---------------------------如果控件及约束由代码创建----------------------------
-    UIImageView *iv = [[UIImageView alloc] initWithImage:nil];
+//    UIImageView *iv = [[UIImageView alloc] initWithImage:nil];
+//
+//    //设置uiimageview的缩放模式
+//    iv.contentMode = UIViewContentModeScaleAspectFit;
+//    //设置自动布局系统不要将自动缩放掩码转换为约束
+//    iv.translatesAutoresizingMaskIntoConstraints = NO;
+//    [self.view addSubview:iv];
+//    self.imgViewCodebase = iv;
     
-    //设置uiimageview的缩放模式
-    iv.contentMode = UIViewContentModeScaleAspectFit;
-    //设置自动布局系统不要将自动缩放掩码转换为约束
-    iv.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:iv];
-    self.imgViewCodebase = iv;
-    
-    NSDictionary *nameMap = @{@"imageView" : self.imgViewCodebase,
-                              @"submitButton" : self.subButton};
-    //imgViewCodebase的左右与父视图距离都为0
-    NSArray *horizonalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[imageView]|"
-                                                                            options:0
-                                                                            metrics:nil
-                                                                              views:nameMap
-                                     ];
-    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[submitButton]-10-[imageView]-54-|"
-                                                                           options:0
-                                                                           metrics:nil
-                                                                             views:nameMap];
-    [self.view addConstraints:horizonalConstraints];
-    [self.view addConstraints:verticalConstraints];
+//    NSDictionary *nameMap = @{@"imageView" : self.imgViewCodebase,
+//                              @"submitButton" : self.subButton};
+//    //imgViewCodebase的左右与父视图距离都为0
+//    NSArray *horizonalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[imageView]|"
+//                                                                            options:0
+//                                                                            metrics:nil
+//                                                                              views:nameMap
+//                                     ];
+//    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[submitButton]-10-[imageView]-54-|"
+//                                                                           options:0
+//                                                                           metrics:nil
+//                                                                             views:nameMap];
+//    [self.view addConstraints:horizonalConstraints];
+//    [self.view addConstraints:verticalConstraints];
     _imgViewCodebase.image = [UIImage imageNamed:@"WechatIMG2.jpeg"];
 //----------------------------------------------------------------------------
    }

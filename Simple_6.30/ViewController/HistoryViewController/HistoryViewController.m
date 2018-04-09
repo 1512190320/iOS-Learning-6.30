@@ -29,6 +29,12 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.rowHeight = 88;
+    
+    UIImageView *backImageView=[[UIImageView alloc]initWithFrame:self.view.bounds];
+    [backImageView setImage:[UIImage imageNamed:@"Image"]];
+    _tableView.backgroundView=backImageView;
+    
 //    //将header加入到tableview
 //    [_tableView setTableHeaderView:self.headView];
 
@@ -162,14 +168,23 @@
 
     
 //-------自定义cell的添加------
+    NSDate *date=[NSDate date];
+    NSDateFormatter *format1=[[NSDateFormatter alloc] init];
+    [format1 setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    NSString *dateStr;
+    dateStr=[format1 stringFromDate:date];
+    
     NSArray *items = [[User sharedUser] allItems];
     ItemCell *cellItem = [tableView dequeueReusableCellWithIdentifier:@"ItemCell" forIndexPath:indexPath];
     UserItem *item = items[indexPath.row];
     cellItem.mainLable.text = item.name;
     cellItem.subLable.text = item.name;
-    cellItem.rightLable.text = item.name;
+    //cellItem.rightLable.text = item.name;
+    cellItem.rightLable.text = dateStr;
     cellItem.imgView.image = item.thunbNail;
-    
+    cellItem.layer.cornerRadius = 8.0f;
+    cellItem.backgroundColor = [UIColor clearColor];
+    cellItem.backgroundColor = [UIColor colorWithRed:230.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0];
     
     
     NSString *itemKey = item.itemKey;

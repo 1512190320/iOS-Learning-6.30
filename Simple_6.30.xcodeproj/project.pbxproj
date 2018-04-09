@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		0512462F1F9366730018E9FF /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512462E1F9366730018E9FF /* NetWork.m */; };
 		05836B9A1F1B0B2F002F9364 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05836B981F1B0B2F002F9364 /* LoginViewController.m */; };
+		05BF6148207A79DE0088B58A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BF6147207A79DE0088B58A /* Assets.xcassets */; };
 		05C6BFE41F258A69009C486D /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C6BFE31F258A69009C486D /* ItemCell.m */; };
 		05C6BFE61F258B99009C486D /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C6BFE51F258B99009C486D /* ItemCell.xib */; };
 		05E74CAE1F06230400C14034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74CAD1F06230400C14034 /* main.m */; };
 		05E74CB11F06230400C14034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74CB01F06230400C14034 /* AppDelegate.m */; };
-		05E74CB91F06230400C14034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05E74CB81F06230400C14034 /* Assets.xcassets */; };
 		05E74CBC1F06230400C14034 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05E74CBA1F06230400C14034 /* LaunchScreen.storyboard */; };
 		05E74CC71F06230400C14034 /* Simple_6_30Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74CC61F06230400C14034 /* Simple_6_30Tests.m */; };
 		05E74CD21F06230400C14034 /* Simple_6_30UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E74CD11F06230400C14034 /* Simple_6_30UITests.m */; };
@@ -56,6 +56,7 @@
 		0512462E1F9366730018E9FF /* NetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
 		05836B971F1B0B2F002F9364 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		05836B981F1B0B2F002F9364 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		05BF6147207A79DE0088B58A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Simple_6.30/Supporting Files/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		05C6BFE21F258A69009C486D /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		05C6BFE31F258A69009C486D /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
 		05C6BFE51F258B99009C486D /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		05E74CAD1F06230400C14034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05E74CAF1F06230400C14034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		05E74CB01F06230400C14034 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		05E74CB81F06230400C14034 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05E74CBB1F06230400C14034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05E74CBD1F06230400C14034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05E74CC21F06230400C14034 /* Simple_6.30Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Simple_6.30Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +175,6 @@
 				05E74CE41F0626AF00C14034 /* ViewController */,
 				05E74CAF1F06230400C14034 /* AppDelegate.h */,
 				05E74CB01F06230400C14034 /* AppDelegate.m */,
-				05E74CB81F06230400C14034 /* Assets.xcassets */,
 				05E74CBD1F06230400C14034 /* Info.plist */,
 				05E74CBA1F06230400C14034 /* LaunchScreen.storyboard */,
 				05E74CAC1F06230400C14034 /* Supporting Files */,
@@ -186,6 +185,7 @@
 		05E74CAC1F06230400C14034 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05BF6147207A79DE0088B58A /* Assets.xcassets */,
 				05E74CE31F06242700C14034 /* PrefixHeader.pch */,
 				05E74D131F0DCBCE00C14034 /* WechatIMG1.jpeg */,
 				05E74D151F0DD88700C14034 /* WechatIMG2.jpeg */,
@@ -420,11 +420,11 @@
 				05E74CBC1F06230400C14034 /* LaunchScreen.storyboard in Resources */,
 				05E74CEF1F06276500C14034 /* AdjustViewController.xib in Resources */,
 				05C6BFE61F258B99009C486D /* ItemCell.xib in Resources */,
-				05E74CB91F06230400C14034 /* Assets.xcassets in Resources */,
 				05E74D121F0C8EFB00C14034 /* ItemViewController.xib in Resources */,
 				05E74CFC1F0638BB00C14034 /* mates.plist in Resources */,
 				05E74D141F0DCBCE00C14034 /* WechatIMG1.jpeg in Resources */,
 				05E74D161F0DD88700C14034 /* WechatIMG2.jpeg in Resources */,
+				05BF6148207A79DE0088B58A /* Assets.xcassets in Resources */,
 				05E74D0C1F0A302600C14034 /* HistoryHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

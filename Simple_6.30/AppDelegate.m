@@ -23,24 +23,25 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    
+    UITabBarController *tabbarC = [[UITabBarController alloc] init];
+
     //创建好3个界面，放入各自的navVC中 加入tabbbar
     MainViewController *main = [[MainViewController alloc] init];
     main.title=@"Main";
-    main.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Main "image:nil tag:0];
+    main.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Main "image:[UIImage imageNamed:@"paw"] tag:0];
     UINavigationController *navFir = [[UINavigationController alloc] initWithRootViewController:main];
 
-    AdjustViewController *adj = [[AdjustViewController alloc] init];
-    adj.title=@"Adjust";
-    adj.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Adjust "image:nil tag:0];
-    UINavigationController *navSec = [[UINavigationController alloc] initWithRootViewController:adj];
+//    AdjustViewController *adj = [[AdjustViewController alloc] init];
+//    adj.title=@"Adjust";
+//    adj.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Adjust "image:nil tag:0];
+//    UINavigationController *navSec = [[UINavigationController alloc] initWithRootViewController:adj];
     
     HistoryViewController *his = [[HistoryViewController alloc] init];
-    his.title=@"History";
-    his.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"History "image:nil tag:0];
+    his.title=@"Note";
+    his.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"History "image:[UIImage imageNamed:@"chat"] tag:0];
     UINavigationController *navThi = [[UINavigationController alloc] initWithRootViewController:his];
     
-    UITabBarController *tabbarC = [[UITabBarController alloc] init];
+    
     
 //-----------对plist的数据读取----------
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"mates" ofType:@"plist"];//获取plist文件路径
@@ -55,8 +56,8 @@
 //    }
 //------------------------------------------
     
-    tabbarC.viewControllers = @[navFir,navSec,navThi];
-    
+//    tabbarC.viewControllers = @[navFir,navSec,navThi];
+    tabbarC.viewControllers = @[navFir,navThi];
     self.window.rootViewController = tabbarC;
     self.window.backgroundColor = [UIColor clearColor];
     

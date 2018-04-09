@@ -15,6 +15,13 @@
     // Initialization code
 }
 
+- (void)setFrame:(CGRect)frame{
+    frame.origin.x += 10;
+    frame.origin.y += 10;
+    frame.size.height -= 20;
+    frame.size.width -= 20;
+    [super setFrame:frame];
+}
 
 
 -(IBAction)showImage:(id)sender{

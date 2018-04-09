@@ -22,7 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Image"]]];
+    
+    //实现模糊效果
+    UIBlurEffect *blurEffrct =[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    //毛玻璃视图
+    UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffrct];
+    visualEffectView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    visualEffectView.alpha = 0.6f;
+    [self.view addSubview:visualEffectView];
     
 //    curr = [[[User sharedUser] allItems] count];
     [self setLogin];
@@ -43,9 +52,17 @@
     
     _textview = [[UITextView alloc] initWithFrame:CGRectMake(40, 250, SCREEN_WIDTH-80, SCREEN_HEIGHT/3)];
     _textview.textColor = [UIColor blackColor];
+    _textview.backgroundColor = [UIColor clearColor];
     _textview.font = [UIFont systemFontOfSize:20.f];
     _textview.textAlignment = NSTextAlignmentCenter;
     _textview.editable = NO;
+    //圆角矩形框
+    _textview.layer.backgroundColor = [[UIColor colorWithRed:230.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0]CGColor];
+    _textview.layer.borderColor = [[UIColor colorWithRed:230.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0]CGColor];
+    _textview.layer.borderWidth = 3.0;
+    _textview.layer.cornerRadius = 8.0f;
+    [_textview.layer setMasksToBounds:YES];
+    
     [self.view addSubview:_textview];
     
     _nextButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -55,6 +72,7 @@
     _nextButton.showsTouchWhenHighlighted = YES;
     _nextButton.alpha = 0.f;
     [self.view addSubview:_nextButton];
+    
     
     
 }
